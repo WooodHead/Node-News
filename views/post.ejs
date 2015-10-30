@@ -1,0 +1,11 @@
+<% include partials/header %>
+<% if (!user) { %> <h3>You must log in or register to post links.</h3><% } else { %>
+<form role="form" action="/post" method="post">
+    Title: <br>
+    <input type="text" name="title"> <br><br>
+    Link: <br>
+    <input type="text" name="url"> <br><br>
+    <input type="submit" value="Submit">
+</form>
+<% } %>
+<% include partials/footer %>

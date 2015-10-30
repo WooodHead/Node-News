@@ -1,0 +1,11 @@
+<% include partials/header %>
+<% if(user) { %><a href="/post">[Create a post]</a><% } %>
+<h1>News!</h1>
+<ul>
+<% for(var i = 0; i < links.length; i++) { %>
+        <li><a href="<%= links[i].url %>"><h2><%= links[i].title %></h2></a>
+            <a href="<%= links[i]._id %>">comments</a> || Posted on <%= links[i].date %> by user: <%= links[i].author %>
+        </li>
+<% } %>
+</ul>
+<% include partials/footer %>

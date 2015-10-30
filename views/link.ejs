@@ -1,0 +1,21 @@
+<% include partials/header %>
+<h2>Link: <a href="<%= link.url %>"><%= link.title %></a></h2>
+<a href="/<%= link._id %>/comment">[Post a comment]</a>
+<h3>Comments: </h3>
+<% if(link.comments.length == 0) { %>
+    <h3>No comments yet!</h3>
+<% } else { %>
+    <ul>
+        <% for (var i = 0; i < link.comments.length; i++) { %>
+            <% if(link.comments[i].hidden) { %>
+                <li>[deleted]</li>
+            <% } else { %>
+            <li>
+                <p><%= link.comments[i].author %> -- Posted on: <i><%= link.comments[i].date %></i></p>
+                <p><%= link.comments[i].body %></p>
+            </li>
+            <% } %>
+        <% } %>
+    </ul>
+<% } %>
+<% include partials/footer %>
